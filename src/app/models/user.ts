@@ -7,11 +7,11 @@ export class User {
   mascota: {
     nombre: string;
     horarioAlimentacion: {
-      lunes: Date;
-      martes: Date;
-      miercoles: Date;
-      jueves: Date;
-      viernes: Date;
+      lunes: string;
+      martes: string;
+      miercoles: string;
+      jueves: string;
+      viernes: string;
     };
   };
 
@@ -23,11 +23,11 @@ export class User {
     mascota: {
       nombre: string;
       horarioAlimentacion: {
-        lunes: Date;
-        martes: Date;
-        miercoles: Date;
-        jueves: Date;
-        viernes: Date;
+        lunes: string;
+        martes: string;
+        miercoles: string;
+        jueves: string;
+        viernes: string;
       };
     }
   ) {
