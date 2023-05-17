@@ -1,40 +1,42 @@
+import { Time } from '@angular/common';
+
 export class User {
   _id?: number;
-  nombre: string;
-  apellidos: string;
-  correo: string;
-  contrasenia: string;
-  mascota: {
-    nombre: string;
-    horarioAlimentacion: {
-      lunes: string;
-      martes: string;
-      miercoles: string;
-      jueves: string;
-      viernes: string;
+  name: string;
+  lastName: string;
+  email: string;
+  password: string;
+  pet: {
+    name: string;
+    feedingSchedule: {
+      monday: Time;
+      tuesday: Time;
+      wednesday: Time;
+      thursday: Time;
+      friday: Time;
     };
   };
 
   constructor(
-    nombre: string,
-    apellidos: string,
-    correo: string,
-    contrasenia: string,
-    mascota: {
-      nombre: string;
-      horarioAlimentacion: {
-        lunes: string;
-        martes: string;
-        miercoles: string;
-        jueves: string;
-        viernes: string;
+    name: string,
+    lastName: string,
+    email: string,
+    password: string,
+    pet: {
+      name: string;
+      feedingSchedule: {
+        monday: Time;
+        tuesday: Time;
+        wednesday: Time;
+        thursday: Time;
+        friday: Time;
       };
     }
   ) {
-    this.nombre = nombre;
-    this.apellidos = apellidos;
-    this.correo = correo;
-    this.contrasenia = contrasenia;
-    this.mascota = mascota;
+    this.name = name;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
+    this.pet = pet;
   }
 }
