@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { LoginComponent } from './components/login/login.component';
+import { DetectObjectComponent } from './components/detect-object/detect-object.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
     CreateUserComponent,
     ListUsersComponent,
     LoginComponent,
+    DetectObjectComponent,
   ],
   imports: [
     BrowserModule,

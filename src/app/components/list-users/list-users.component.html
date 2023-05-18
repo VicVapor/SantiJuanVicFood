@@ -5,7 +5,7 @@
         <div class="card-body text-center">
           <span class="tittle">USERS LIST</span>
           <button class="btn btn-success float-end" routerLink="/create-user">NEW</button>
-          <table class="table table-striped mt-3">
+          <table *ngIf="listUsers.length > 0" class="table table-striped mt-3">
             <thead>
               <tr>
                 <th scope="col">Name</th>
@@ -16,22 +16,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Victor</td>
-                <td>Gutierrez</td>
-                <td>vicprueba@gmail.com</td>
-                <td>Filomena</td>
-                <td>
-                  <i class="fa-solid fa-pen-to-square text-primary"></i>
-                  <i class="fa-solid fa-trash text-danger"></i>
-
-                </td>
-              </tr>
-              <tr>
-                <td>Karen</td>
-                <td>Gutierrez</td>
-                <td>kaprueba@gmail.com</td>
-                <td>Konny</td>
+              <tr *ngFor="let user of listUsers">
+                <td>{{user.name}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.pet.name}}</td>
                 <td>
                   <i class="fa-solid fa-pen-to-square text-primary"></i>
                   <i class="fa-solid fa-trash text-danger"></i>
@@ -39,6 +28,7 @@
               </tr>
             </tbody>
           </table>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="listUsers.length == 0">There are no users to show</h5>
         </div>
       </div>
     </div>
