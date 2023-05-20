@@ -62,12 +62,37 @@ function onDetected(error, results) {
       setTimeout(() => {
         console.log(detections);
         shouldPrintDetection = true;
+        //sendCommandToParent("cambiar-valor-variable"); // Envia el mensaje al componente Angular
+        sendDetectionDataToBackend(detections);
       }, 5000);
     }
   } catch (error) {
     console.log(error);
   }
 }
+
+function sendDetectionDataToBackend(detections) {
+  fetch("http://localhost:3000/api/users/detection", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(detections),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Datos de detección enviados al backend:", data);
+    })
+    .catch((error) => {
+      console.error("Error al enviar los datos de detección:", error);
+    });
+}
+
+/*
+function sendCommandToParent(command) {
+  window.parent.postMessage(command, "http://localhost:4200/detection");
+}
+*/
 
 function detect() {
   detector.detect(video, onDetected);
