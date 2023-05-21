@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 // Components
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { DetectObjectComponent } from './components/detect-object/detect-object.
     LoginComponent,
     DetectObjectComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +31,7 @@ import { DetectObjectComponent } from './components/detect-object/detect-object.
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
+    FormsModule, // Agregamos el módulo FormsModule aquí
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -28,6 +28,8 @@ export class CreateUserComponent {
       wednesdayFeedingTime: ['', Validators.required],
       thursdayFeedingTime: ['', Validators.required],
       fridayFeedingTime: ['', Validators.required],
+      saturdayFeedingTime: ['', Validators.required], // Nueva propiedad para el sábado
+      sundayFeedingTime: ['', Validators.required], // Nueva propiedad para el domingo
     });
   }
 
@@ -40,18 +42,54 @@ export class CreateUserComponent {
       pet: {
         name: this.userForm.get('petName')?.value,
         feedingSchedule: {
-          monday: this.userForm.get('mondayFeedingTime')?.value,
-          tuesday: this.userForm.get('tuesdayFeedingTime')?.value,
-          wednesday: this.userForm.get('wednesdayFeedingTime')?.value,
-          thursday: this.userForm.get('thursdayFeedingTime')?.value,
-          friday: this.userForm.get('fridayFeedingTime')?.value,
+          monday: [
+            {
+              startTime: this.userForm.get('mondayFeedingTime')?.value,
+              endTime: this.userForm.get('mondayFeedingTime')?.value,
+            },
+          ],
+          tuesday: [
+            {
+              startTime: this.userForm.get('tuesdayFeedingTime')?.value,
+              endTime: this.userForm.get('tuesdayFeedingTime')?.value,
+            },
+          ],
+          wednesday: [
+            {
+              startTime: this.userForm.get('wednesdayFeedingTime')?.value,
+              endTime: this.userForm.get('wednesdayFeedingTime')?.value,
+            },
+          ],
+          thursday: [
+            {
+              startTime: this.userForm.get('thursdayFeedingTime')?.value,
+              endTime: this.userForm.get('thursdayFeedingTime')?.value,
+            },
+          ],
+          friday: [
+            {
+              startTime: this.userForm.get('fridayFeedingTime')?.value,
+              endTime: this.userForm.get('fridayFeedingTime')?.value,
+            },
+          ],
+          saturday: [
+            {
+              startTime: this.userForm.get('saturdayFeedingTime')?.value,
+              endTime: this.userForm.get('saturdayFeedingTime')?.value,
+            },
+          ],
+          sunday: [
+            {
+              startTime: this.userForm.get('sundayFeedingTime')?.value,
+              endTime: this.userForm.get('sundayFeedingTime')?.value,
+            },
+          ],
         },
       },
     };
 
     console.log('Created user: ', USER);
-    // Así mostramos un mensaje para que el usuario sepa que se guardo correctamente su info
-    this.toastr.success('User registered succesfully', 'User registered');
+    this.toastr.success('User registered successfully', 'User registered');
     this.router.navigate(['/']);
   }
 }
