@@ -19,7 +19,7 @@ export class CreateUserComponent {
   ) {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
-      lastname: ['', Validators.required],
+      lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       petName: ['', Validators.required],
@@ -28,15 +28,15 @@ export class CreateUserComponent {
       wednesdayFeedingTime: ['', Validators.required],
       thursdayFeedingTime: ['', Validators.required],
       fridayFeedingTime: ['', Validators.required],
-      saturdayFeedingTime: ['', Validators.required], // Nueva propiedad para el sábado
-      sundayFeedingTime: ['', Validators.required], // Nueva propiedad para el domingo
+      saturdayFeedingTime: ['', Validators.required],
+      sundayFeedingTime: ['', Validators.required],
     });
   }
 
   addUser() {
     const USER: User = {
       name: this.userForm.get('name')?.value,
-      lastName: this.userForm.get('lastname')?.value,
+      lastName: this.userForm.get('lastName')?.value,
       email: this.userForm.get('email')?.value,
       password: this.userForm.get('password')?.value,
       pet: {

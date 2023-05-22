@@ -8,7 +8,6 @@
                         <div class="mb-3">
                             <input type="text" formControlName="name" class="form-control form-control-lg"
                                 placeholder="Name">
-                            <!-- Este div permite mostrar un mensaje de error si el usuario no rellena el campo -->
                             <div class="text-danger"
                                 *ngIf="userForm.get('name')?.hasError('required') && userForm.get('name')?.touched">
                                 <span>
@@ -17,11 +16,10 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" formControlName="lastname" class="form-control form-control-lg"
+                            <input type="text" formControlName="lastName" class="form-control form-control-lg"
                                 placeholder="Lastname">
-                            <!-- Los signos de interrogación deben ir para evitar el error de posiblemente null -->
                             <div class="text-danger"
-                                *ngIf="userForm.get('lastname')?.hasError('required') && userForm.get('lastname')?.touched">
+                                *ngIf="userForm.get('lastName')?.hasError('required') && userForm.get('lastName')?.touched">
                                 <span>
                                     The user last name <strong>is required</strong>
                                 </span>
@@ -43,7 +41,7 @@
                             <div class="text-danger"
                                 *ngIf="userForm.get('password')?.hasError('required') && userForm.get('password')?.touched">
                                 <span>
-                                    The user name <strong>is required</strong>
+                                    The password <strong>is required</strong>
                                 </span>
                             </div>
                         </div>
@@ -59,6 +57,7 @@
                             <h3 class="tittle">Feeding Schedule:</h3>
                             <label>Monday:</label>
                             <input type="time" formControlName="mondayFeedingTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="mondayFeedingTime" class="form-control form-control-lg">
                             <div class="text-danger"
                                 *ngIf="userForm.get('mondayFeedingTime')?.hasError('required') && userForm.get('mondayFeedingTime')?.touched">
                                 <span>
@@ -67,6 +66,8 @@
                             </div>
                             <br>
                             <label>Tuesday:</label>
+                            <input type="time" formControlName="tuesdayFeedingTime"
+                                class="form-control form-control-lg">
                             <input type="time" formControlName="tuesdayFeedingTime"
                                 class="form-control form-control-lg">
                             <div class="text-danger"
@@ -79,6 +80,8 @@
                             <label>Wednesday:</label>
                             <input type="time" formControlName="wednesdayFeedingTime"
                                 class="form-control form-control-lg">
+                            <input type="time" formControlName="wednesdayFeedingTime"
+                                class="form-control form-control-lg">
                             <div class="text-danger"
                                 *ngIf="userForm.get('wednesdayFeedingTime')?.hasError('required') && userForm.get('wednesdayFeedingTime')?.touched">
                                 <span>
@@ -87,6 +90,8 @@
                             </div>
                             <br>
                             <label>Thursday:</label>
+                            <input type="time" formControlName="thursdayFeedingTime"
+                                class="form-control form-control-lg">
                             <input type="time" formControlName="thursdayFeedingTime"
                                 class="form-control form-control-lg">
                             <div class="text-danger"
@@ -98,6 +103,7 @@
                             <br>
                             <label>Friday:</label>
                             <input type="time" formControlName="fridayFeedingTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="fridayFeedingTime" class="form-control form-control-lg">
                             <div class="text-danger"
                                 *ngIf="userForm.get('fridayFeedingTime')?.hasError('required') && userForm.get('fridayFeedingTime')?.touched">
                                 <span>
@@ -107,7 +113,7 @@
                         </div>
                         <div class="mb-3">
                             <button class="btn btn-secondary btn-lg float-start" routerLink="/">GO BACK</button>
-                            <button type="submit" [disabled]="userForm.invalid"
+                            <button type="submit" 
                                 class="btn btn-success btn-lg float-end">SUBMIT</button>
                         </div>
                     </form>
