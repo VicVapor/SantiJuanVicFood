@@ -8,31 +8,31 @@ export interface User {
   pet?: {
     name: string;
     feedingSchedule: {
-      monday: [{ 
+      monday: [{
         startTime: { type: Date, required: true },
         endTime: { type: Date, required: true }
       }],
-      tuesday: [{ 
+      tuesday: [{
         startTime: { type:  Date, required: true },
         endTime: { type:  Date, required: true }
       }],
-      wednesday: [{ 
+      wednesday: [{
         startTime: { type:  Date, required: true },
         endTime: { type:  Date, required: true }
       }],
-      thursday: [{ 
+      thursday: [{
         startTime: { type:  Date, required: true },
         endTime: { type:  Date, required: true }
       }],
-      friday: [{ 
+      friday: [{
         startTime: { type:  Date, required: true },
         endTime: { type:  Date, required: true }
       }],
-      saturday: [{ 
+      saturday: [{
         startTime: { type:  Date, required: true },
         endTime: { type:  Date, required: true }
       }],
-      sunday: [{ 
+      sunday: [{
         startTime: { type:  Date, required: true },
         endTime: { type:  Date, required: true }
       }],
