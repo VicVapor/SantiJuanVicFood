@@ -56,56 +56,71 @@
                             <br>
                             <h3 class="tittle">Feeding Schedule:</h3>
                             <label>Monday:</label>
-                            <input type="time" formControlName="mondayFeedingTime" class="form-control form-control-lg">
-                            <input type="time" formControlName="mondayFeedingTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="mondayStartTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="mondayEndTime" class="form-control form-control-lg">
                             <div class="text-danger"
-                                *ngIf="userForm.get('mondayFeedingTime')?.hasError('required') && userForm.get('mondayFeedingTime')?.touched">
+                                *ngIf="userForm.get('mondayStartTime')?.hasError('required') && userForm.get('mondayStartTime')?.touched || userForm.get('mondayEndTime')?.hasError('required') && userForm.get('mondayEndTime')?.touched">
                                 <span>
                                     Feeding time <strong>is required</strong>
                                 </span>
                             </div>
+                            <!-- Repite el mismo patrón para los demás días -->
                             <br>
                             <label>Tuesday:</label>
-                            <input type="time" formControlName="tuesdayFeedingTime"
-                                class="form-control form-control-lg">
-                            <input type="time" formControlName="tuesdayFeedingTime"
-                                class="form-control form-control-lg">
+                            <input type="time" formControlName="tuesdayStartTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="tuesdayEndTime" class="form-control form-control-lg">
                             <div class="text-danger"
-                                *ngIf="userForm.get('tuesdayFeedingTime')?.hasError('required') && userForm.get('tuesdayFeedingTime')?.touched">
+                                *ngIf="userForm.get('tuesdayStartTime')?.hasError('required') && userForm.get('tuesdayStartTime')?.touched || userForm.get('tuesdayEndTime')?.hasError('required') && userForm.get('tuesdayEndTime')?.touched">
                                 <span>
                                     Feeding time <strong>is required</strong>
                                 </span>
                             </div>
                             <br>
                             <label>Wednesday:</label>
-                            <input type="time" formControlName="wednesdayFeedingTime"
-                                class="form-control form-control-lg">
-                            <input type="time" formControlName="wednesdayFeedingTime"
-                                class="form-control form-control-lg">
+                            <input type="time" formControlName="wednesdayStartTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="wednesdayEndTime" class="form-control form-control-lg">
                             <div class="text-danger"
-                                *ngIf="userForm.get('wednesdayFeedingTime')?.hasError('required') && userForm.get('wednesdayFeedingTime')?.touched">
+                                *ngIf="userForm.get('wednesdayStartTime')?.hasError('required') && userForm.get('wednesdayStartTime')?.touched || userForm.get('wednesdayEndTime')?.hasError('required') && userForm.get('wednesdayEndTime')?.touched">
                                 <span>
                                     Feeding time <strong>is required</strong>
                                 </span>
                             </div>
                             <br>
                             <label>Thursday:</label>
-                            <input type="time" formControlName="thursdayFeedingTime"
-                                class="form-control form-control-lg">
-                            <input type="time" formControlName="thursdayFeedingTime"
-                                class="form-control form-control-lg">
+                            <input type="time" formControlName="thursdayStartTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="thursdayEndTime" class="form-control form-control-lg">
                             <div class="text-danger"
-                                *ngIf="userForm.get('thursdayFeedingTime')?.hasError('required') && userForm.get('thursdayFeedingTime')?.touched">
+                                *ngIf="userForm.get('thursdayStartTime')?.hasError('required') && userForm.get('thursdayStartTime')?.touched || userForm.get('thursdayEndTime')?.hasError('required') && userForm.get('thursdayEndTime')?.touched">
                                 <span>
                                     Feeding time <strong>is required</strong>
                                 </span>
                             </div>
                             <br>
                             <label>Friday:</label>
-                            <input type="time" formControlName="fridayFeedingTime" class="form-control form-control-lg">
-                            <input type="time" formControlName="fridayFeedingTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="fridayStartTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="fridayEndTime" class="form-control form-control-lg">
                             <div class="text-danger"
-                                *ngIf="userForm.get('fridayFeedingTime')?.hasError('required') && userForm.get('fridayFeedingTime')?.touched">
+                                *ngIf="userForm.get('fridayStartTime')?.hasError('required') && userForm.get('fridayStartTime')?.touched || userForm.get('fridayEndTime')?.hasError('required') && userForm.get('fridayEndTime')?.touched">
+                                <span>
+                                    Feeding time <strong>is required</strong>
+                                </span>
+                            </div>
+                            <br>
+                            <label>Saturday:</label>
+                            <input type="time" formControlName="saturdayStartTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="saturdayEndTime" class="form-control form-control-lg">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('saturdayStartTime')?.hasError('required') && userForm.get('saturdayStartTime')?.touched || userForm.get('saturdayEndTime')?.hasError('required') && userForm.get('saturdayEndTime')?.touched">
+                                <span>
+                                    Feeding time <strong>is required</strong>
+                                </span>
+                            </div>
+                            <br>
+                            <label>Sunday:</label>
+                            <input type="time" formControlName="sundayStartTime" class="form-control form-control-lg">
+                            <input type="time" formControlName="sundayEndTime" class="form-control form-control-lg">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('sundayStartTime')?.hasError('required') && userForm.get('sundayStartTime')?.touched || userForm.get('sundayEndTime')?.hasError('required') && userForm.get('sundayEndTime')?.touched">
                                 <span>
                                     Feeding time <strong>is required</strong>
                                 </span>

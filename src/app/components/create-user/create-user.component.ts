@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -15,7 +16,8 @@ export class CreateUserComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private http: HttpClient
   ) {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
@@ -23,13 +25,20 @@ export class CreateUserComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       petName: ['', Validators.required],
-      mondayFeedingTime: ['', Validators.required],
-      tuesdayFeedingTime: ['', Validators.required],
-      wednesdayFeedingTime: ['', Validators.required],
-      thursdayFeedingTime: ['', Validators.required],
-      fridayFeedingTime: ['', Validators.required],
-      saturdayFeedingTime: ['', Validators.required],
-      sundayFeedingTime: ['', Validators.required],
+      mondayStartTime: ['', Validators.required],
+      mondayEndTime: ['', Validators.required],
+      tuesdayStartTime: ['', Validators.required],
+      tuesdayEndTime: ['', Validators.required],
+      wednesdayStartTime: ['', Validators.required],
+      wednesdayEndTime: ['', Validators.required],
+      thursdayStartTime: ['', Validators.required],
+      thursdayEndTime: ['', Validators.required],
+      fridayStartTime: ['', Validators.required],
+      fridayEndTime: ['', Validators.required],
+      saturdayStartTime: ['', Validators.required],
+      saturdayEndTime: ['', Validators.required],
+      sundayStartTime: ['', Validators.required],
+      sundayEndTime: ['', Validators.required],
     });
   }
 
@@ -44,52 +53,60 @@ export class CreateUserComponent {
         feedingSchedule: {
           monday: [
             {
-              startTime: this.userForm.get('mondayFeedingTime')?.value,
-              endTime: this.userForm.get('mondayFeedingTime')?.value,
+              startTime: this.userForm.get('mondayStartTime')?.value,
+              endTime: this.userForm.get('mondayEndTime')?.value,
             },
           ],
           tuesday: [
             {
-              startTime: this.userForm.get('tuesdayFeedingTime')?.value,
-              endTime: this.userForm.get('tuesdayFeedingTime')?.value,
+              startTime: this.userForm.get('tuesdayStartTime')?.value,
+              endTime: this.userForm.get('tuesdayEndTime')?.value,
             },
           ],
           wednesday: [
             {
-              startTime: this.userForm.get('wednesdayFeedingTime')?.value,
-              endTime: this.userForm.get('wednesdayFeedingTime')?.value,
+              startTime: this.userForm.get('wednesdayStartTime')?.value,
+              endTime: this.userForm.get('wednesdayEndTime')?.value,
             },
           ],
           thursday: [
             {
-              startTime: this.userForm.get('thursdayFeedingTime')?.value,
-              endTime: this.userForm.get('thursdayFeedingTime')?.value,
+              startTime: this.userForm.get('thursdayStartTime')?.value,
+              endTime: this.userForm.get('thursdayEndTime')?.value,
             },
           ],
           friday: [
             {
-              startTime: this.userForm.get('fridayFeedingTime')?.value,
-              endTime: this.userForm.get('fridayFeedingTime')?.value,
+              startTime: this.userForm.get('fridayStartTime')?.value,
+              endTime: this.userForm.get('fridayEndTime')?.value,
             },
           ],
           saturday: [
             {
-              startTime: this.userForm.get('saturdayFeedingTime')?.value,
-              endTime: this.userForm.get('saturdayFeedingTime')?.value,
+              startTime: this.userForm.get('saturdayStartTime')?.value,
+              endTime: this.userForm.get('saturdayEndTime')?.value,
             },
           ],
           sunday: [
             {
-              startTime: this.userForm.get('sundayFeedingTime')?.value,
-              endTime: this.userForm.get('sundayFeedingTime')?.value,
+              startTime: this.userForm.get('sundayStartTime')?.value,
+              endTime: this.userForm.get('sundayEndTime')?.value,
             },
           ],
         },
       },
     };
 
-    console.log('Created user: ', USER);
-    this.toastr.success('User registered successfully', 'User registered');
-    this.router.navigate(['/']);
+    this.http.post('http://localhost:3000/api/users/create-user', USER).subscribe(
+      (response) => {
+        console.log('User registered successfully', response);
+        this.toastr.success('User registered successfully', 'User registered');
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.error('Error registering user', error);
+        this.toastr.error('Error registering user', 'Registration failed');
+      }
+    );
   }
 }
