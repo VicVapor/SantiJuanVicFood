@@ -1,42 +1,42 @@
 export interface Jwtres {
-    _id?: string,
-    name: string,
-    lastName: string,
-    email: string,
-    password: string,
-      pet: {
-        name: string;
-        feedingSchedule: {
-          monday: [{ 
-            startTime: { type: Date, required: true },
-            endTime: { type: Date, required: true }
-          }],
-          tuesday: [{ 
-            startTime: { type:  Date, required: true },
-            endTime: { type:  Date, required: true }
-          }],
-          wednesday: [{ 
-            startTime: { type:  Date, required: true },
-            endTime: { type:  Date, required: true }
-          }],
-          thursday: [{ 
-            startTime: { type:  Date, required: true },
-            endTime: { type:  Date, required: true }
-          }],
-          friday: [{ 
-            startTime: { type:  Date, required: true },
-            endTime: { type:  Date, required: true }
-          }],
-          saturday: [{ 
-            startTime: { type:  Date, required: true },
-            endTime: { type:  Date, required: true }
-          }],
-          sunday: [{ 
-            startTime: { type:  Date, required: true },
-            endTime: { type:  Date, required: true }
-          }],
-        };
-      },
-    accessToken: string,
-    expiresIn: string
+  _id?: string;
+  name: string;
+  lastName: string;
+  email: string;
+  password: string;
+  pet: {
+    name: string;
+    feedingSchedule: {
+      monday: [{
+        startTime: Date;
+        endTime: Date;
+      }];
+      tuesday: [{
+        startTime: Date;
+        endTime: Date;
+      }];
+      wednesday: [{
+        startTime: Date;
+        endTime: Date;
+      }];
+      thursday: [{
+        startTime: Date;
+        endTime: Date;
+      }];
+      friday: [{
+        startTime: Date;
+        endTime: Date;
+      }];
+      saturday: [{
+        startTime: Date;
+        endTime: Date;
+      }];
+      sunday: [{
+        startTime: Date;
+        endTime: Date;
+      }];
+    };
+  };
+  token: string; // Actualizado: usar 'token' en lugar de 'accessToken'
+  expiresIn: string;
 }

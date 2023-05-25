@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
     const user: User = { email: this.email, password: this.password };
     this.authenticationService.login(user).subscribe(
       (res) => {
-        localStorage.setItem('accessToken', res.accessToken);
+        console.log(res);
+        localStorage.setItem('token', res.token); // Actualizado: usar 'token' en lugar de 'accessToken'
         this.router.navigateByUrl('/detection');
       }
     );

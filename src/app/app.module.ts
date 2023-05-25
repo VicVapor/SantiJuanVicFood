@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 // Components
@@ -15,6 +15,8 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { LoginComponent } from './components/login/login.component';
 import { DetectObjectComponent } from './components/detect-object/detect-object.component';
 
+import { TokenInterceptorService } from './services/token-interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,7 @@ import { DetectObjectComponent } from './components/detect-object/detect-object.
     LoginComponent,
     DetectObjectComponent,
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,7 +35,13 @@ import { DetectObjectComponent } from './components/detect-object/detect-object.
     HttpClientModule,
     FormsModule, // Agregamos el módulo FormsModule aquí
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

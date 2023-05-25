@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
@@ -6,16 +6,26 @@ import { User } from '../models/user';
 import { Jwtres } from '../models/jwtres';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
   apiUri = '/api/users';
   authSubject = new BehaviorSubject(false);
-  private token: string | null = '';
+  private token: string | null = null; // Corregido: inicializar como null
+  private loggedInSubject = new BehaviorSubject<boolean>(true);
+
+  constructor(private httpClient: HttpClient) {
+    this.token = this.getToken();
+    this.loggedInSubject.next(this.loggedIn());
+  }
+
+  isLoggedIn$(): Observable<boolean> {
+    return this.loggedInSubject;
+  }
 
   private saveToken(token: string, expiresIn: string) {
-    localStorage.setItem("ACCESS_TOKEN", token);
-    localStorage.setItem("EXPIRES_IN", expiresIn); // Corregido: guardar expiresIn en lugar de token
+    localStorage.setItem('token', token); // Actualizado: usar 'token' en lugar de 'accessToken'
+    localStorage.setItem('expiresIn', expiresIn);
     this.token = token;
   }
 
@@ -23,7 +33,7 @@ export class AuthenticationService {
     return this.httpClient.post<Jwtres>(this.apiUri + '/signup', user).pipe(
       tap((res: Jwtres) => {
         if (res) {
-          this.saveToken(res.accessToken, res.expiresIn); // Corregido: usar res.accessToken y res.expiresIn
+          this.saveToken(res.token, res.expiresIn); // Actualizado: usar 'token' en lugar de 'accessToken'
         }
       })
     );
@@ -33,24 +43,23 @@ export class AuthenticationService {
     return this.httpClient.post<Jwtres>(this.apiUri + '/login', user).pipe(
       tap((res: Jwtres) => {
         if (res) {
-          this.saveToken(res.accessToken, res.expiresIn); // Corregido: usar res.accessToken y res.expiresIn
+          this.saveToken(res.token, res.expiresIn); // Actualizado: usar 'token' en lugar de 'accessToken'
         }
       })
     );
   }
 
   logout() {
-    this.token = '';
-    localStorage.removeItem("ACCESS_TOKEN");
-    localStorage.removeItem("EXPIRES_IN");
+    this.token = null; // Corregido: asignar null al campo token
+    localStorage.removeItem('token');
+    localStorage.removeItem('expiresIn');
   }
 
-  private getToken(): string | null {
-    if (!this.token) {
-      this.token = localStorage.getItem("ACCESS_TOKEN");
-    }
-    return this.token;
+  loggedIn() {
+    return !!this.getToken();
   }
 
-  constructor(private httpClient: HttpClient) { }
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
 }
