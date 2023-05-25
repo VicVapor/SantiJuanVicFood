@@ -11,14 +11,21 @@ import {
   templateUrl: './detect-object.component.html',
   styleUrls: ['./detect-object.component.css'],
 })
-export class DetectObjectComponent implements OnInit/*, AfterViewInit*/ {
+export class DetectObjectComponent implements OnInit /*, AfterViewInit*/ {
   /*@ViewChild('iframeRef', { static: true })
   iframeRef!: ElementRef<HTMLIFrameElement>;
 */
+
+  logged: boolean=false;
+
   constructor() {}
 
-  ngOnInit() {}
-  
+  ngOnInit() {
+    if(localStorage.getItem('logged')==='1'){
+      this.logged=true;
+    }
+  }
+
   /*
   ngAfterViewInit() {
     // Agrega el event listener para escuchar los mensajes del iframe después de que se haya inicializado la vista

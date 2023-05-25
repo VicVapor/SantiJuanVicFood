@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
       (res) => {
         console.log(res);
         localStorage.setItem('token', res.token); // Actualizado: usar 'token' en lugar de 'accessToken'
+        localStorage.setItem('logged', '1');
         this.router.navigateByUrl('/detection');
       }
     );
