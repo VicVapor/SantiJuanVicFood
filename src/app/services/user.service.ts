@@ -6,12 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  url = '/api/users';
+  apiUri = '/api/users';
   httpOptions = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
   getUsers(): Observable<any> {
-    return this.http.get(this.url);
+    return this.httpClient.get(this.apiUri);
+  }
+
+  getUserInfo() {
+    return this.httpClient.get(this.apiUri + '/private');
   }
 }

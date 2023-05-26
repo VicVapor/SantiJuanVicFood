@@ -1,4 +1,7 @@
 <div>
-    <iframe *ngIf="logged" #iframeRef src="../../../assets/detector/index.html" frameborder="0" style="height: 600px; width: 600px;"></iframe>
+    <div *ngIf="logged" class="container">
+        <iframe  #iframeRef src="../../../assets/detector/index.html" frameborder="0" style="height: 600px; width: 600px;"></iframe>
+        
+    </div>
     <h1 id="title-advise" *ngIf="!logged">You have to login before start detection</h1>
 </div>

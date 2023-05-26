@@ -5,6 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-detect-object',
@@ -16,14 +17,19 @@ export class DetectObjectComponent implements OnInit /*, AfterViewInit*/ {
   iframeRef!: ElementRef<HTMLIFrameElement>;
 */
 
-  logged: boolean=false;
+  logged: boolean = false;
+  schedule = [];
 
-  constructor() {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
-    if(localStorage.getItem('logged')==='1'){
-      this.logged=true;
+    if (localStorage.getItem('logged') === '1') {
+      this.logged = true;
     }
+    this.userService.getUserInfo().subscribe(
+      (res) => console.log(res),
+      (error) => console.log(error)
+    );
   }
 
   /*

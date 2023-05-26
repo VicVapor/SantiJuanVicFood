@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { User } from '../models/user';
 import { Jwtres } from '../models/jwtres';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class AuthenticationService {
   private token: string | null = null; // Corregido: inicializar como null
   private loggedInSubject = new BehaviorSubject<boolean>(true);
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.token = this.getToken();
     this.loggedInSubject.next(this.loggedIn());
   }
@@ -49,17 +50,19 @@ export class AuthenticationService {
     );
   }
 
-  logout() {
-    this.token = null; // Corregido: asignar null al campo token
-    localStorage.removeItem('token');
-    localStorage.removeItem('expiresIn');
-  }
-
   loggedIn() {
     return !!this.getToken();
   }
 
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+
+  logout() {
+    this.token = null; // Corregido: asignar null al campo token
+    localStorage.removeItem('token');
+    localStorage.removeItem('expiresIn');
+    localStorage.removeItem('logged');
+    this.router.navigate(['login']);
   }
 }
