@@ -5,7 +5,6 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { LoginComponent } from './components/login/login.component';
 import { DetectObjectComponent } from './components/detect-object/detect-object.component';
-import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: ListUsersComponent },
@@ -15,7 +14,6 @@ const routes: Routes = [
   {
     path: 'detection',
     component: DetectObjectComponent,
-    canActivate: [AuthGuard],
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

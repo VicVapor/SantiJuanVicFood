@@ -72,10 +72,13 @@ function onDetected(error, results) {
 }
 
 function sendDetectionDataToBackend(detections) {
+  const token = localStorage.getItem("token"); // Obtén el token de autenticación desde donde lo tengas almacenado
+  console.log("Token deste detection", token);
   fetch("http://localhost:3000/api/users/detection", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`, // Agrega el token al encabezado Authorization
     },
     body: JSON.stringify(detections),
   })
@@ -87,12 +90,6 @@ function sendDetectionDataToBackend(detections) {
       console.error("Error al enviar los datos de detección:", error);
     });
 }
-
-/*
-function sendCommandToParent(command) {
-  window.parent.postMessage(command, "http://localhost:4200/detection");
-}
-*/
 
 function detect() {
   detector.detect(video, onDetected);

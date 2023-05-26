@@ -13,15 +13,9 @@ export class AuthenticationService {
   apiUri = '/api/users';
   authSubject = new BehaviorSubject(false);
   private token: string | null = null; // Corregido: inicializar como null
-  private loggedInSubject = new BehaviorSubject<boolean>(true);
 
   constructor(private httpClient: HttpClient, private router: Router) {
     this.token = this.getToken();
-    this.loggedInSubject.next(this.loggedIn());
-  }
-
-  isLoggedIn$(): Observable<boolean> {
-    return this.loggedInSubject;
   }
 
   private saveToken(token: string, expiresIn: string) {
