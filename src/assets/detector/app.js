@@ -57,7 +57,10 @@ function onDetected(error, results) {
     detect();
   }
   try {
-    if (detections[0].label === "person" && shouldPrintDetection) {
+    if (
+      (detections[0].label === "person" || detections[0].label === "dog") &&
+      shouldPrintDetection
+    ) {
       shouldPrintDetection = false;
       setTimeout(() => {
         console.log(detections);
