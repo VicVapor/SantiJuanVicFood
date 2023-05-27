@@ -13,5 +13,7 @@ canvas {
 }
 
 #title-advise {
-  color: white;
+  color: rgb(16, 179, 170);
+  text-align: center;
+  font-style: italic;
 }

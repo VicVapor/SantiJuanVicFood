@@ -1,5 +1,5 @@
 <div>
-    <div *ngIf="logged" class="container">
+    <div *ngIf="logged" class="container d-flex justify-content-center">
         <iframe #iframeRef src="../../../assets/detector/index.html" frameborder="0"
             style="height: 600px; width: 600px;"></iframe>
         <div class="container mt-5">
@@ -46,5 +46,6 @@
             </div>
         </div>
     </div>
-    <h1 id="title-advise" *ngIf="!logged">You have to login before start detection</h1>
+    <br>
+    <h1 id="title-advise" *ngIf="!logged">First you must log in!</h1>
 </div>

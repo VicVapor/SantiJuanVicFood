@@ -7,7 +7,6 @@ import { LoginComponent } from './components/login/login.component';
 import { DetectObjectComponent } from './components/detect-object/detect-object.component';
 
 const routes: Routes = [
-  { path: '', component: ListUsersComponent },
   { path: 'create-user', component: CreateUserComponent },
   { path: 'edit-user/:id', component: CreateUserComponent },
   { path: 'login', component: LoginComponent },
