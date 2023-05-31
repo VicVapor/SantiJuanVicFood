@@ -58,7 +58,7 @@ function onDetected(error, results) {
   }
   try {
     if (
-      (detections[0].label === "person" || detections[0].label === "dog") &&
+      (detections[0].label === "person" || detections[0].label === "dog" || detections[0]==="cat") &&
       shouldPrintDetection
     ) {
       shouldPrintDetection = false;
