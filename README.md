@@ -1,14 +1,20 @@
-PetFood v1.0.0
+**PetFood v1.0.0**
 
-Índice:
+**Índice:**
+1.Descripción del proyecto.
+2.Estado del proyecto.
+3.Acceso al proyecto.
+4.Tecnologias utilizadas.
+Personas desarrolladoras del proyecto.
 
-Descripción del proyecto: Este software es una solucion innovadora que busca abordar el desafio comun de proporcionar alimentacion regulada y equilibrada a las mascotas. Esto se realizo mediante el uso de tecnologías avanzadas y una interfaz intuitiva, permitiendole a los dueños de mascotas programar horarios de alimentacion precisos en los momentos adecuados.
+**Descripción del proyecto:** Este software es una solucion innovadora que busca abordar el desafio comun de proporcionar alimentacion regulada y equilibrada a las mascotas. Esto se realizo mediante el uso de tecnologías avanzadas y una interfaz intuitiva, permitiendole a los dueños de mascotas programar horarios de alimentacion precisos en los momentos adecuados.
+utiliza un programa con interfaz y un dispositivo físico para dispensar alimentos de manera automatizada. El sistema ofrece programación personalizada, manejo desde un computador, dispensación de alimento, registro de animal y alimentación durante ausencias.
 
-Estado del proyecto: Finalizado con oportunidades de mejora.
+**Estado del proyecto:** Finalizado con oportunidades de mejora.
 
-Acceso al proyecto: Acceso local.
+**Acceso al proyecto:** Acceso local.
 
-Tecnologías utilizadas:
+**Tecnologías utilizadas:**
 Backend: 
 bcrypt: Encriptar contraseñas.
 cors: Peticiones.
@@ -26,4 +32,4 @@ Frontend:
 Angular: Framework del front.
 ml5: Reconocimiento inteligente de objetos.
 
-Personas desarrolladoras del Proyecto: Eddie Santiago Hernandez Mesa/506211008 - Victor Jose Gutierrez Peñaranda/506211023 - Juan Camilo Castillo Silva/506211007
+**Personas desarrolladoras del Proyecto:** Eddie Santiago Hernandez Mesa/506211008 - Victor Jose Gutierrez Peñaranda/506211023 - Juan Camilo Castillo Silva/506211007
